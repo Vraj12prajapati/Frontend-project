@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password - Online Study Platform</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Additional CSS styles can be added here */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('d1.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    .card {
+      width: 400px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .btn-group {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title text-center">Forgot Password</h5>
+      </div>
+      <div class="card-body">
+        <form id="forgot-password-form">
+          <!-- Email field -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+          </div>
+          <!-- Additional fields -->
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+          </div>
+          <div class="form-group">
+            <label for="security-question">Security Question</label>
+            <input type="text" class="form-control" id="security-question" placeholder="Enter your security question" required>
+          </div>
+          <div class="form-group">
+            <label for="security-answer">Security Answer</label>
+            <input type="text" class="form-control" id="security-answer" placeholder="Enter your security answer" required>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+        </form>
+        <!-- Message for password reset confirmation -->
+        <div id="reset-message" class="text-center mt-3" style="display: none;">
+          <p>Password reset link sent to your email. Check your inbox!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script>
+    $(document).ready(function(){
+      // Form submission handler
+      $('#forgot-password-form').submit(function(e){
+        e.preventDefault();
+        // Perform AJAX request to send password reset link
+        // For demonstration purposes, we'll just display the reset message
+        $('#reset-message').show();
+      });
+    });
+  </script>
+</body>
+</html>

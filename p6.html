@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login or Signup - Online Study Platform</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Additional CSS styles can be added here */
+    body {
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Hide scrollbar */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      display: flex; /* Use flexbox to center content */
+      justify-content: center; /* Horizontally center content */
+      align-items: center; /* Vertically center content */
+      height: 100vh; /* Set body height to viewport height */
+    }
+
+    .fullscreen-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('d1.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px); /* Apply blur effect */
+      z-index: -1; /* Send to back */
+    }
+
+    .container {
+      position: relative; /* Position relative for z-index to work */
+      z-index: 1; /* Bring to front */
+    }
+
+    .card {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .card-header {
+      background-color: rgba(0, 123, 255, 0.8);
+      color: #fff;
+    }
+
+    .btn-group {
+      margin-top: 20px;
+    }
+
+    /* Additional styles for the asking section */
+    .asking-section {
+      text-align: center;
+    }
+
+    .asking-box {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .asking-section h2 {
+      color: #000;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn-yes,
+    .btn-no {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-yes:hover,
+    .btn-no:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navigation bar styles */
+    .navbar {
+      background-color: #007bff;
+      padding: 1rem;
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .footer {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <div class="container mx-auto">
+      <a class="navbar-brand" href="#">Online Study Platform</a>
+    </div>
+  </nav>
+
+  <!-- Background image with blur effect -->
+  <div class="fullscreen-bg"></div>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="asking-section">
+      <div class="asking-box">
+        <h2>Do you already have an account?</h2>
+        <button class="btn-yes bg-blue-500 text-white" onclick="redirectToLogin()">Yes</button>
+        <button class="btn-no bg-gray-500 text-white" onclick="redirectToSignup()">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container mx-auto">
+      <p>Online Study Platform &copy; 2022</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script>
+    // Function to redirect to the login page
+    function redirectToLogin() {
+      window.location.href = 'p3.html';
+    }
+
+    // Function to redirect to the signup page
+    function redirectToSignup() {
+      window.location.href = 'p4.html';
+    }
+  </script>
+</body>
+</html>

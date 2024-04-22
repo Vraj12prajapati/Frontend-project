@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses Listing - Online Study Platform</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Additional CSS styles can be added here */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      margin-bottom: 100px; /* Ensure space for the footer */
+    }
+
+    .navbar {
+      background-color: #fff;
+    }
+
+    .course {
+      margin-bottom: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Hide overflow for smooth transition */
+      transition: transform 0.3s ease; /* Add transition effect */
+    }
+
+    .course img {
+      width: 100%;
+      height: 200px; /* Set a fixed height for all images */
+      object-fit: cover; /* Ensure images maintain aspect ratio and cover the container */
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transition: transform 0.3s ease; /* Add transition effect */
+    }
+
+    .course:hover {
+      transform: translateY(-5px); /* Move up on hover */
+    }
+
+    .course:hover img {
+      transform: scale(1.1); /* Zoom in on hover */
+    }
+
+    .course-body {
+      padding: 20px;
+    }
+
+    .course-title {
+      font-weight: bold;
+    }
+
+    .course-description {
+      color: #666;
+    }
+
+    .course-enroll {
+      margin-top: 20px;
+    }
+
+    /* Style for search input */
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    .search-container input[type=text] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      font-size: 17px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    /* Footer styles */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      margin-bottom: 0;
+    }
+
+    .footer a {
+      color: #fff;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Online Study Platform</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="q2.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="p1.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="q2.html">About Us</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="p6.html">Login</a>
+            </li>
+            <!-- Search bar -->
+           
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+
+  <!-- Course listing -->
+  <section class="container">
+    <div class="search-container">
+      <input type="text" id="searchInput" onkeyup="searchCourses()" placeholder="Search for courses...">
+    </div>
+    <h1 class="mt-4 mb-4">Courses</h1>
+    <div class="row" id="courseList">
+      <!-- Course cards will be dynamically added here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer mt-4">
+    <div class="container text-center">
+      <p>Online Study Platform &copy; 2024</p>
+      <p>Designed with <i class="fas fa-heart"></i> by <a href="#">Vraj Prajapati</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Sample course data
+    var courses = [
+      { title: "Mathematics", description: "Advanced Calculus, Linear Algebra", image: "m.jpg" },
+      { title: "Programming", description: "Python, JavaScript, Java, and more.", image: "p.jpg" },
+      { title: "Design", description: "Graphic Design, UI/UX, Web Design", image: "d2.jpg" },
+      { title: "Science", description: "Biology, Chemistry, Physics, and more.", image: "s.jpg" },
+      { title: "Languages", description: "English, Spanish, French, and more.", image: "l1.jpg" },
+      { title: "Business", description: "Marketing, Finance, Management.", image: "b1.jpg" }
+    ];
+
+    // Function to display courses
+    function displayCourses() {
+      var courseList = document.getElementById('courseList');
+      courseList.innerHTML = '';
+      courses.forEach(function(course) {
+        var courseCard = `
+          <div class="col-md-4">
+            <div class="course">
+              <img src="${course.image}" alt="${course.title}">
+              <div class="course-body">
+                <h5 class="course-title">${course.title}</h5>
+                <p class="course-description">${course.description}</p>
+                <a href="enroll.html" class="btn btn-primary course-enroll">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        `;
+        courseList.innerHTML += courseCard;
+      });
+    }
+
+    // Initial display of courses
+    displayCourses();
+
+    // Function to search courses
+    function searchCourses() {
+      var input, filter, courseList, courseCards, title, description, i, txtValue;
+      input = document.getElementById('searchInput');
+      filter = input.value.toUpperCase();
+      courseList = document.getElementById('courseList');
+      courseCards = courseList.getElementsByClassName('course');
+      for (i = 0; i < courseCards.length; i++) {
+        title = courseCards[i].getElementsByClassName('course-title')[0];
+        description = courseCards[i].getElementsByClassName('course-description')[0];
+        txtValue = title.textContent || title.innerText;
+        txtValue += ' ' + (description.textContent || description.innerText);
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          courseCards[i].style.display = '';
+        } else {
+          courseCards[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
